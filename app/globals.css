@@ -1,0 +1,350 @@
+/* Google Fonts must be imported BEFORE @tailwind directives */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-dm-sans: 'DM Sans', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+  --font-ibm-mono: 'IBM Plex Mono', monospace;
+  --font-cormorant: 'Cormorant Garamond', serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1cdc7; border-radius: 4px; }
+
+/* Resume template styles — scoped to #resume-root */
+#resume-root {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 100%;
+  width: 794px;
+  min-height: 1123px;
+  background: white;
+}
+
+/* ── EXECUTIVE TEMPLATE ── */
+.tpl-executive .r-header {
+  background: #1a1a2e;
+  color: white;
+  padding: 2.2rem 2.5rem 1.8rem;
+}
+.tpl-executive .r-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+.tpl-executive .r-jobtitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 0.3rem;
+}
+.tpl-executive .r-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.9rem;
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.65);
+}
+.tpl-executive .r-body {
+  display: grid;
+  grid-template-columns: 1fr 230px;
+}
+.tpl-executive .r-main {
+  padding: 1.8rem 2rem 2rem 2.5rem;
+  border-right: 1px solid #ede9e3;
+}
+.tpl-executive .r-side {
+  padding: 1.8rem 1.5rem;
+  background: #faf9f7;
+}
+
+/* ── MINIMAL TEMPLATE ── */
+.tpl-minimal .r-header {
+  padding: 2.5rem 3rem 1.5rem;
+  border-left: 6px solid;
+}
+.tpl-minimal .r-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.02em;
+}
+.tpl-minimal .r-jobtitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.2rem;
+}
+.tpl-minimal .r-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 0.8rem;
+  font-size: 0.74rem;
+  color: #6b7280;
+}
+.tpl-minimal .r-body {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  padding: 1.5rem 3rem;
+  gap: 2rem;
+}
+
+/* ── ELEGANT TEMPLATE ── */
+.tpl-elegant .r-header {
+  background: linear-gradient(135deg, #1a1a2e 60%, #2d1b69);
+  color: white;
+  padding: 3rem 3rem 2.2rem;
+  text-align: center;
+}
+.tpl-elegant .r-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+.tpl-elegant .r-jobtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.72);
+  margin-top: 0.4rem;
+  letter-spacing: 0.05em;
+}
+.tpl-elegant .r-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1rem;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.6);
+}
+.tpl-elegant .r-body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+.tpl-elegant .r-main {
+  padding: 2rem 2.5rem 2rem 1.8rem;
+}
+.tpl-elegant .r-side {
+  padding: 2rem 1.8rem;
+  background: #1a1a2e;
+  color: white;
+  order: -1;
+}
+.tpl-elegant .r-side .r-section-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-style: italic;
+  font-size: 1.1rem !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  border-bottom: 1px solid rgba(244,162,97,0.4) !important;
+}
+.tpl-elegant .r-side .skill-tag {
+  background: rgba(255,255,255,0.12) !important;
+}
+.tpl-elegant .r-side .edu-school,
+.tpl-elegant .r-side .edu-date { color: rgba(255,255,255,0.55) !important; }
+.tpl-elegant .r-side .edu-degree { color: white !important; }
+.tpl-elegant .r-side .summary-text { color: rgba(255,255,255,0.78) !important; }
+
+/* ── TECHNICAL TEMPLATE ── */
+.tpl-technical .r-header {
+  background: #0d1117;
+  padding: 1.8rem 2.5rem;
+  border-bottom: 3px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.tpl-technical .r-header-left {}
+.tpl-technical .r-name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: #e6edf3;
+  letter-spacing: -0.01em;
+}
+.tpl-technical .r-name::before {
+  content: '> ';
+}
+.tpl-technical .r-jobtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: #58a6ff;
+  margin-top: 0.3rem;
+}
+.tpl-technical .r-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(230,237,243,0.55);
+  text-align: right;
+}
+.tpl-technical .r-body {
+  display: grid;
+  grid-template-columns: 1fr 210px;
+}
+.tpl-technical .r-main {
+  padding: 1.6rem 2rem 2rem 2.5rem;
+  border-right: 1px solid #e5e2db;
+}
+.tpl-technical .r-side {
+  padding: 1.6rem 1.5rem;
+  background: #f6f8fa;
+}
+.tpl-technical .r-section-title {
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 0.6rem !important;
+  border-bottom: 1px dashed !important;
+}
+.tpl-technical .skill-tag {
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 0.62rem !important;
+  border-radius: 3px !important;
+}
+.tpl-technical .exp-title {
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 0.8rem !important;
+}
+.tpl-technical .exp-company::before { content: '@ '; }
+
+/* ── CREATIVE TEMPLATE ── */
+.tpl-creative .r-header {
+  background: #6d28d9;
+  color: white;
+  padding: 2.5rem;
+  border-radius: 0 0 2rem 2rem;
+}
+.tpl-creative .r-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.tpl-creative .r-jobtitle {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  margin-top: 0.3rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.tpl-creative .r-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.9rem;
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.65);
+}
+.tpl-creative .r-body {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  padding: 1.5rem;
+  gap: 1.5rem;
+}
+
+/* ── SHARED RESUME ELEMENTS ── */
+.r-section { margin-bottom: 1.5rem; }
+.r-section-title {
+  font-size: 0.64rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid;
+}
+.exp-item {
+  margin-bottom: 1.1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0ede8;
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-row { display: flex; justify-content: space-between; align-items: flex-start; }
+.exp-title { font-weight: 700; font-size: 0.88rem; }
+.exp-date { font-size: 0.7rem; color: #6b7280; white-space: nowrap; margin-left: 0.5rem; }
+.exp-company { font-size: 0.78rem; font-weight: 600; margin: 0.15rem 0 0.4rem; }
+.exp-desc { font-size: 0.76rem; color: #4b5563; line-height: 1.65; }
+.edu-item { margin-bottom: 1rem; }
+.edu-degree { font-weight: 700; font-size: 0.84rem; }
+.edu-school { font-size: 0.76rem; margin-top: 0.1rem; }
+.edu-date { font-size: 0.7rem; }
+.skill-group { margin-bottom: 1rem; }
+.skill-group-name { font-size: 0.7rem; font-weight: 700; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.skill-tag { color: white; padding: 0.18rem 0.55rem; border-radius: 4px; font-size: 0.68rem; font-weight: 500; }
+.proj-item { margin-bottom: 1.1rem; }
+.proj-name { font-weight: 700; font-size: 0.87rem; }
+.proj-tech { font-size: 0.72rem; font-weight: 600; margin: 0.1rem 0 0.3rem; }
+.proj-desc { font-size: 0.76rem; color: #4b5563; line-height: 1.65; }
+.summary-text { font-size: 0.79rem; line-height: 1.75; color: #4b5563; }
+
+
+
+/* ── PRINT / PDF STYLES ── */
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body > *:not(#print-root) { display: none !important; }
+  #print-root {
+    display: block !important;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: white;
+  }
+  #resume-root {
+    box-shadow: none !important;
+    width: 100% !important;
+    min-height: unset !important;
+  }
+  #resume-root * {
+    opacity: 1 !important;
+    filter: none !important;
+    color: inherit !important;  /* prevents faded text */
+  }
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  @media print {
+  #resume-root,
+  #resume-root * {
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+  }
+
+  #resume-root .r-name,
+  #resume-root .exp-title,
+  #resume-root .proj-name,
+  #resume-root .edu-degree {
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+    font-weight: bold !important;
+  }
+
+  #resume-root .r-section-title,
+  #resume-root .skill-tag,
+  #resume-root .exp-date,
+  #resume-root .exp-desc,
+  #resume-root .proj-desc,
+  #resume-root .summary-text {
+    font-family: Arial, Helvetica, sans-serif !important;
+  }
+}
+}
