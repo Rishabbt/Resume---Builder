@@ -28,6 +28,11 @@ const TEMPLATES = [
     name: "Creative",
     preview: { headerBg: "#6d28d9", accentBg: "#a78bfa", sideBg: "#f5f3ff" },
   },
+  {
+  id: "tpl-classic",
+  name: "Classic",
+  preview: { headerBg: "#ffffff", accentBg: "#1a1a2e", sideBg: "#ffffff" },
+},
 ];
 
 export default function StyleForm() {
@@ -82,7 +87,7 @@ export default function StyleForm() {
       </div>
 
       {/* Accent Colors */}
-      <p className="text-[0.7rem] font-bold uppercase tracking-[0.06em] text-[#6b7280] mb-3">
+      {/* <p className="text-[0.7rem] font-bold uppercase tracking-[0.06em] text-[#6b7280] mb-3">
         Accent Color
       </p>
       <div className="flex flex-wrap gap-2.5 mb-6">
@@ -102,7 +107,7 @@ export default function StyleForm() {
             {accent === key ? "✓" : ""}
           </button>
         ))}
-      </div>
+      </div> */}
 
       {/* Font Scale */}
       <p className="text-[0.7rem] font-bold uppercase tracking-[0.06em] text-[#6b7280] mb-2">

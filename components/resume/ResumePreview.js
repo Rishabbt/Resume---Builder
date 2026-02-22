@@ -331,5 +331,25 @@ export default function ResumePreview() {
   );
 }
 
+if (template === "tpl-classic") {
+  const allSections = sections.filter((s) => s.visible);
+  return (
+    <div id="resume-root" className="tpl-classic" style={{ fontSize: `${fontScale}%` }}>
+      <div className="r-header">
+        <div className="r-name">{personal.name || "Your Name"}</div>
+        <Contacts personal={personal} />
+      </div>
+      <div className="r-body">
+        <div className="r-main">
+          {allSections.map((s) => (
+            <RenderSection key={s.id} sectionId={s.id} data={resumeData} accent={accent} />
+          ))}
+        </div>
+        <div className="r-side" />
+      </div>
+    </div>
+  );
+}
+
   return null;
 }

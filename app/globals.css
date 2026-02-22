@@ -348,3 +348,156 @@
   }
 }
 }
+/* ── CLASSIC TEMPLATE (Rishabh style) ── */
+.tpl-classic .r-header {
+  padding: 2rem 2.5rem 1rem;
+  text-align: center;
+  border-bottom: 2px solid #1a1a2e;
+}
+.tpl-classic .r-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.tpl-classic .r-jobtitle {
+  display: none;
+}
+.tpl-classic .r-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.76rem;
+  color: #374151;
+}
+.tpl-classic .r-contacts a,
+.tpl-classic .r-contacts span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.tpl-classic .r-body {
+  display: block;
+  padding: 0 2.5rem 2rem;
+}
+.tpl-classic .r-main {
+  display: block;
+}
+.tpl-classic .r-side {
+  display: block;
+}
+.tpl-classic .r-section {
+  margin-bottom: 1.2rem;
+}
+.tpl-classic .r-section-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #1a1a2e;
+  border-bottom: 1.5px solid #1a1a2e;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.8rem;
+  margin-top: 1.2rem;
+}
+.tpl-classic .exp-item {
+  border-bottom: none;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0;
+}
+.tpl-classic .exp-row {
+  display: flex;
+  justify-content: space-between;
+}
+.tpl-classic .exp-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.tpl-classic .exp-date {
+  font-size: 0.78rem;
+  color: #374151;
+}
+.tpl-classic .exp-company {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-bottom: 0.3rem;
+}
+.tpl-classic .exp-desc {
+  font-size: 0.78rem;
+  color: #1f2937;
+  line-height: 1.7;
+}
+.tpl-classic .proj-item {
+  margin-bottom: 0.9rem;
+}
+.tpl-classic .proj-name {
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.tpl-classic .proj-tech {
+  font-size: 0.76rem;
+  color: #374151;
+  margin: 0.15rem 0 0.3rem;
+}
+.tpl-classic .proj-desc {
+  font-size: 0.78rem;
+  color: #1f2937;
+  line-height: 1.7;
+}
+.tpl-classic .edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.7rem;
+}
+.tpl-classic .edu-degree {
+  font-weight: 700;
+  font-size: 0.84rem;
+}
+.tpl-classic .edu-school {
+  font-size: 0.78rem;
+  color: #374151;
+}
+.tpl-classic .edu-date {
+  font-size: 0.78rem;
+  color: #374151;
+  white-space: nowrap;
+  text-align: right;
+}
+.tpl-classic .skill-group {
+  margin-bottom: 0.5rem;
+}
+.tpl-classic .skill-group-name {
+  display: inline;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+.tpl-classic .skill-tags {
+  display: inline;
+}
+.tpl-classic .skill-tag {
+  display: inline;
+  background: none;
+  color: #1f2937;
+  font-size: 0.78rem;
+  padding: 0;
+  border-radius: 0;
+}
+.tpl-classic .skill-tag::after {
+  content: ', ';
+}
+.tpl-classic .skill-tag:last-child::after {
+  content: '';
+}
+.tpl-classic .summary-text {
+  font-size: 0.8rem;
+  color: #1f2937;
+  line-height: 1.7;
+}
