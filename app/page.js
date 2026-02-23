@@ -13,7 +13,7 @@ useEffect(() => {
   if (isMobile) {
     const timer = setTimeout(() => {
       setSidebarOpen(true);
-    }, 2000);
+    }, 1500);
     return () => clearTimeout(timer);
   }
 }, []);
