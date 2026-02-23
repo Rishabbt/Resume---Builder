@@ -62,35 +62,39 @@ function ProjectsSection({ data, accent }) {
   if (!data.projects.length) return null;
   return (
     <div className="r-section">
-      <SectionTitle accent={accent}>Projects</SectionTitle>
-      {data.projects.map((p) => (
-        <div key={p.id} className="proj-item">
-          <div className="proj-name">
-            {p.name || "Project"}
-            {p.link && (
-              <a
-                href={p.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                   fontSize: "0.72rem",
-                   color: accent.accent,
-                   textDecoration: "none",
-                   fontWeight: 600,
-                   }}
-              >
-                  View
-              </a>
-            )}
-          </div>
-          {p.tech && <div className="proj-tech" style={{ color: accent.gold }}>{p.tech}</div>}
-          <div
-            className="proj-desc"
-            dangerouslySetInnerHTML={{ __html: esc(p.desc).replace(/\n/g, "<br/>") }}
-          />
-        </div>
-      ))}
+  <SectionTitle accent={accent}>Projects</SectionTitle>
+  {data.projects.map((p) => (
+    <div key={p.id} className="proj-item">
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+        <span className="proj-name">{p.name || "Project"}</span>
+        {p.link && (
+          <a
+            href={p.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: "0.72rem",
+              color: accent.accent,
+              textDecoration: "none",
+              fontWeight: 600,
+              marginLeft: "auto",
+              whiteSpace: "nowrap",
+              flexShrink: 0,
+              color:"blue",
+            }}
+          >
+            ↗ View
+          </a>
+        )}
+      </div>
+      {p.tech && <div className="proj-tech" style={{ color: accent.gold }}>{p.tech}</div>}
+      <div
+        className="proj-desc"
+        dangerouslySetInnerHTML={{ __html: esc(p.desc).replace(/\n/g, "<br/>") }}
+      />
     </div>
+  ))}
+</div>
   );
 }
 
