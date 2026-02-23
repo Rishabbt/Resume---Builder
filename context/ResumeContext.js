@@ -121,7 +121,7 @@ export function ResumeProvider({ children }) {
   const [accent, setAccent] = useState("red");
   const [fontScale, setFontScale] = useState(100);
   const [sections, setSections] = useState(DEFAULT_SECTIONS);
-  const [activeTab, setActiveTab] = useState("personal");
+  const [activeTab, setActiveTab] = useState("guide");
 
   // ── Personal ──────────────────────────────────────────────────────────
   const updatePersonal = useCallback((field, value) => {

@@ -7,9 +7,11 @@ export default function PreviewPane() {
 
   useEffect(() => {
     const updateScale = () => {
-      // Available width = window - sidebar width
-      const sidebarWidth = window.innerWidth >= 1024 ? 430 : 0;
-      const availableWidth = window.innerWidth - sidebarWidth - 64; // 64 = padding
+      const isMobile = window.innerWidth < 1024;
+      // On mobile sidebar is hidden, full width available
+      const availableWidth = isMobile
+        ? window.innerWidth - 32  // 32 = padding
+        : window.innerWidth - 430 - 64; // 430 sidebar + 64 padding
       const resumeWidth = 794;
       const newScale = Math.min(1, availableWidth / resumeWidth);
       setScale(newScale);
@@ -26,7 +28,7 @@ export default function PreviewPane() {
         style={{
           transform: `scale(${scale})`,
           transformOrigin: "top center",
-          marginBottom: `${(scale - 1) * 1123}px`, // collapse whitespace when scaled down
+          marginBottom: `${(scale - 1) * 1123}px`,
         }}
         className="shadow-[0_12px_60px_rgba(0,0,0,0.22)]"
       >

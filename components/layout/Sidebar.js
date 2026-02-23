@@ -7,9 +7,11 @@ import SkillsForm from "@/components/forms/SkillsForm";
 import ProjectsForm from "@/components/forms/ProjectsForm";
 import StyleForm from "@/components/forms/StyleForm";
 import SectionOrderForm from "@/components/forms/SectionOrderForm";
+import GuidePanel from "@/components/forms/GuidePanel";
 import clsx from "clsx";
 
 const TABS = [
+  { id: "guide",     label: "Guide",    icon: "📖" },  
   { id: "style",     label: "Style",    icon: "🎨" },
   { id: "personal",  label: "Info",     icon: "👤" },
   { id: "work",      label: "Work",     icon: "💼" },
@@ -20,12 +22,13 @@ const TABS = [
 ];
 
 const SECTION_TITLES = {
+  guide:     "How to Use",
+  style:     "Style & Templates",
   personal:  "Personal Info",
   work:      "Work Experience",
   education: "Education",
   skills:    "Skills",
   projects:  "Projects",
-  style:     "Style & Templates",
   order:     "Section Order",
 };
 
@@ -58,13 +61,13 @@ export default function Sidebar() {
         <h2 className="font-serif text-[1.05rem] font-bold mb-4 pb-2.5 border-b-2 border-[#e2ddd6]">
           {SECTION_TITLES[activeTab]}
         </h2>
-
+        {activeTab === "guide" && <GuidePanel />}
+        {activeTab === "style"     && <StyleForm />}
         {activeTab === "personal"  && <PersonalForm />}
         {activeTab === "work"      && <WorkForm />}
         {activeTab === "education" && <EducationForm />}
         {activeTab === "skills"    && <SkillsForm />}
         {activeTab === "projects"  && <ProjectsForm />}
-        {activeTab === "style"     && <StyleForm />}
         {activeTab === "order"     && <SectionOrderForm />}
       </div>
     </aside>

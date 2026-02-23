@@ -1,7 +1,7 @@
 "use client";
 import { useResume, ACCENT_COLORS } from "@/context/ResumeContext";
 
-function esc(str) {
+function escapeHtml(str) {
   if (!str) return "";
   return String(str)
     .replace(/&/g, "&amp;")
@@ -9,6 +9,14 @@ function esc(str) {
     .replace(/>/g, "&gt;");
 }
 
+function formatText(str) {
+  if (!str) return "";
+  return escapeHtml(str)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    .replace(/`(.+?)`/g, "<code style='background:#f3f4f6;padding:0.1rem 0.3rem;border-radius:3px'>$1</code>")
+    .replace(/\n/g, "<br/>");
+}
 // ── Section Components ────────────────────────────────────────────────────
 
 function SectionTitle({ accent, children }) {
@@ -27,7 +35,10 @@ function SummarySection({ data, accent }) {
   return (
     <div className="r-section">
       <SectionTitle accent={accent}>Profile</SectionTitle>
-      <div className="summary-text">{data.personal.summary}</div>
+      <div
+  className="summary-text"
+  dangerouslySetInnerHTML={{ __html: formatText(data.personal.summary) }}
+/>
     </div>
   );
 }
@@ -50,7 +61,7 @@ function WorkSection({ data, accent }) {
           </div>
           <div
             className="exp-desc"
-            dangerouslySetInnerHTML={{ __html: esc(w.desc).replace(/\n/g, "<br/>") }}
+            dangerouslySetInnerHTML={{ __html: formatText(w.desc) }}
           />
         </div>
       ))}
@@ -90,7 +101,7 @@ function ProjectsSection({ data, accent }) {
       {p.tech && <div className="proj-tech" style={{ color: accent.gold }}>{p.tech}</div>}
       <div
         className="proj-desc"
-        dangerouslySetInnerHTML={{ __html: esc(p.desc).replace(/\n/g, "<br/>") }}
+       dangerouslySetInnerHTML={{ __html: formatText(p.desc) }}
       />
     </div>
   ))}
