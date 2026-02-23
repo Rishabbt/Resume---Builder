@@ -3,71 +3,88 @@ import { useState } from "react";
 import { useResume } from "@/context/ResumeContext";
 import Button from "@/components/ui/Button";
 
-export default function Header() {
+export default function Header({ onMenuToggle }) {
   const { loadDemo, clearAll, resumeData } = useResume();
   const [downloading, setDownloading] = useState(false);
   const [showTech, setShowTech] = useState(false);
 
- const handleDownload = () => {
-  const resume = document.getElementById("resume-root");
-  const printRoot = document.getElementById("print-root");
-  if (!resume || !printRoot) return;
-
-  // Clone resume into print-root so only it shows when printing
-  printRoot.innerHTML = "";
-  printRoot.appendChild(resume.cloneNode(true));
-  printRoot.style.display = "block";
-
-  window.print();
-
-  // Cleanup after print dialog closes
-  setTimeout(() => {
-    printRoot.innerHTML = "";
-    printRoot.style.display = "none";
-  }, 1000);
-};
+  const handleDownload = async () => {
+    setDownloading(true);
+    try {
+      // Dynamic import with ssr:false equivalent — import only runs client-side
+      const html2pdf = (await import("html2pdf.js")).default;
+      const element = document.getElementById("resume-root");
+      if (!element) return;
+      const name = resumeData.personal.name || "Resume";
+      await html2pdf()
+        .set({
+          margin: 0,
+          filename: `${name.replace(/\s+/g, "_")}_Resume.pdf`,
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+          jsPDF: { unit: "pt", format: "a4", orientation: "portrait" },
+        })
+        .from(element)
+        .save();
+    } catch (err) {
+      console.error("PDF generation failed:", err);
+      alert("PDF download failed. Please try again.");
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 h-14 bg-[#1a1a2e] flex items-center justify-between px-5 shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
-        {/* Logo */}
-        <div className="flex items-center gap-2.5">
-          <span className="font-serif text-[1.35rem] text-white font-bold tracking-wide">
-            Resume<span className="text-[#e63946]">Craft</span>
-          </span>
-          <span className="font-mono text-[0.58rem] bg-[#e63946] text-white px-2 py-0.5 rounded tracking-[0.1em] font-medium">
-            PRO
-          </span>
-        </div>
+      <header className="fixed top-0 left-0 right-0 z-50 h-14 bg-[#1a1a2e] flex items-center justify-between px-4 md:px-5 shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
+  {/* Left — hamburger + logo */}
+  <div className="flex items-center gap-3">
+    {/* Hamburger — mobile only */}
+    <button
+      onClick={onMenuToggle}
+      className="lg:hidden flex flex-col gap-1.5 p-1"
+    >
+      <span className="w-5 h-0.5 bg-white rounded" />
+      <span className="w-5 h-0.5 bg-white rounded" />
+      <span className="w-5 h-0.5 bg-white rounded" />
+    </button>
+    <div className="flex items-center gap-2">
+      <span className="font-serif text-[1.2rem] md:text-[1.35rem] text-white font-bold tracking-wide">
+        Resume<span className="text-[#e63946]">Craft</span>
+      </span>
+      <span className="hidden sm:inline font-mono text-[0.58rem] bg-[#e63946] text-white px-2 py-0.5 rounded tracking-[0.1em] font-medium">
+        PRO
+      </span>
+    </div>
+  </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm" onClick={() => setShowTech(true)}>
-            🛠 Tech Stack
-          </Button>
-          <Button variant="ghost" size="sm" onClick={loadDemo}>
-            📋 Demo
-          </Button>
-          <Button variant="ghost" size="sm" onClick={clearAll}>
-            🗑 Clear
-          </Button>
-          <Button
-            variant="download"
-            size="sm"
-            onClick={handleDownload}
-            disabled={downloading}
-          >
-            {downloading ? (
-              <>
-                <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                Generating…
-              </>
-            ) : (
-              "⬇ Download PDF"
-            )}
-          </Button>
-        </div>
-      </header>
+  {/* Actions */}
+  <div className="flex items-center gap-1.5">
+    <Button variant="ghost" size="sm" onClick={() => setShowTech(true)} className="hidden md:flex">
+      🛠 Tech Stack
+    </Button>
+    {/* <Button variant="ghost" size="sm" onClick={loadDemo} className="hidden sm:flex">
+      📋 Demo
+    </Button> */}
+    {/* <Button variant="ghost" size="sm" onClick={clearAll} className="hidden sm:flex">
+      🗑 Clear
+    </Button> */}
+    <Button variant="download" size="sm" onClick={handleDownload} disabled={downloading}>
+      {downloading ? (
+        <>
+          <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+          <span className="hidden sm:inline">Generating…</span>
+        </>
+      ) : (
+        <>
+          <span>⬇</span>
+          <span className="hidden sm:inline">Download PDF</span>
+          <span className="sm:hidden">PDF</span>
+        </>
+      )}
+    </Button>
+  </div>
+</header>
 
       {/* Tech Stack Modal */}
       {showTech && <TechStackModal onClose={() => setShowTech(false)} />}

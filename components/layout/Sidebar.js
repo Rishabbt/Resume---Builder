@@ -33,7 +33,7 @@ export default function Sidebar() {
   const { activeTab, setActiveTab } = useResume();
 
   return (
-    <aside className="w-[430px] min-w-[430px] bg-white border-r border-[#e2ddd6] flex flex-col h-full overflow-hidden">
+<aside className="w-[85vw] sm:w-[380px] lg:w-[430px] min-w-0 bg-white border-r border-[#e2ddd6] flex flex-col h-full overflow-hidden shadow-xl lg:shadow-none">
       {/* Tab Bar */}
       <div className="flex bg-[#faf9f7] border-b border-[#e2ddd6] flex-shrink-0">
         {TABS.map((tab) => (
