@@ -58,6 +58,7 @@ export default function GuidePanel() {
           Click <strong>Download PDF</strong> in the top right. On desktop enable <strong>Background graphics</strong> in the print dialog for full colors.
         </p>
       </div>
+      <div><span className="text-red-700">Note:-</span> For best experience use Desktop</div>
     </div>
   );
 }
