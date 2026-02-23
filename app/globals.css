@@ -21,12 +21,15 @@
   font-family: 'Roboto', sans-serif;
   font-size: 100%;
   width: 794px;
-  min-height: 1123px;
+  min-height: unset;
+  height: auto;
   background: white;
+  color: #000000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "kern" 1, "liga" 1;
+  font-feature-settings: "liga" 0, "clig" 0;
+  font-variant-ligatures: none;
 }
 
 /* ── EXECUTIVE TEMPLATE ── */
@@ -311,53 +314,44 @@
 
 @media print {
   * {
-    #resume-root {
-  font-family: 'Roboto', sans-serif;
-   color: #000000;
-
-  font-size: 100%;
-  width: 794px;
-  min-height: 1123px;
-  background: white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "liga" 0, "clig" 0;
-  font-variant-ligatures: none;
-}
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
-  #resume-root {
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-}
+
   body > *:not(#print-root) { display: none !important; }
+
   #print-root {
     display: block !important;
-    position: fixed;
-    inset: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 99999;
     background: white;
   }
+
   #resume-root {
-    box-shadow: none !important;
     width: 100% !important;
+    height: auto !important;
     min-height: unset !important;
+    overflow: visible !important;
+    display: block !important;
   }
-  #resume-root * {
-    opacity: 1 !important;
-    filter: none !important;
+
+  #resume-root .r-body {
+    overflow: visible !important;
+    height: auto !important;
   }
-  
-  /*  do not touch it give the color to skill tags
-  .skill-tag {
-    background-color: #1a1a2e !important;
-    color: #ffffff !important;
-    opacity: 1 !important;
-    font-weight: 600 !important;
-  } */
+
+  #resume-root .r-main,
+  #resume-root .r-side {
+    overflow: visible !important;
+    height: auto !important;
+  }
+
   @page {
     size: A4;
-    margin: 0;
+    margin: 10mm;
   }
 }
 /* ── CLASSIC TEMPLATE (Rishabh style) ── */

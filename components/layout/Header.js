@@ -11,13 +11,13 @@ const handleDownload = async () => {
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   if (isMobile) {
-    // Use html2pdf on mobile
     setDownloading(true);
     try {
       const html2pdf = (await import("html2pdf.js")).default;
       const element = document.getElementById("resume-root");
       if (!element) return;
       const name = resumeData.personal.name || "Resume";
+
       await html2pdf()
         .set({
           margin: 0,
@@ -29,23 +29,27 @@ const handleDownload = async () => {
             backgroundColor: "#ffffff",
             scrollX: 0,
             scrollY: 0,
+            windowWidth: 794,
           },
           jsPDF: {
             unit: "mm",
             format: "a4",
             orientation: "portrait",
           },
+          pagebreak: {
+            mode: ["css", "legacy"],
+            before: ".page-break",
+          },
         })
         .from(element)
         .save();
     } catch (err) {
-      console.error("PDF generation failed:", err);
-      alert("PDF download failed. Please try again.");
+      console.error("PDF failed:", err);
     } finally {
       setDownloading(false);
     }
   } else {
-    // Use window.print on desktop
+    // Desktop — window.print handles pagination automatically
     const resume = document.getElementById("resume-root");
     const printRoot = document.getElementById("print-root");
     if (!resume || !printRoot) return;
@@ -53,13 +57,12 @@ const handleDownload = async () => {
     printRoot.innerHTML = "";
     printRoot.appendChild(resume.cloneNode(true));
     printRoot.style.display = "block";
-
     window.print();
 
     setTimeout(() => {
       printRoot.innerHTML = "";
       printRoot.style.display = "none";
-    }, 1000);
+    }, 1500);
   }
 };
   return (
