@@ -5,43 +5,22 @@ import Button from "@/components/ui/Button";
 
 export default function Header({ onMenuToggle }) {
   const { loadDemo, clearAll, resumeData } = useResume();
-  const [downloading, setDownloading] = useState(false);
   const [showTech, setShowTech] = useState(false);
-const handleDownload = async () => {
-  setDownloading(true);
-  try {
-    const html2pdf = (await import("html2pdf.js")).default;
-    const element = document.getElementById("resume-root");
-    if (!element) return;
-    const name = resumeData.personal.name || "Resume";
+const handleDownload = () => {
+  const resume = document.getElementById("resume-root");
+  const printRoot = document.getElementById("print-root");
+  if (!resume || !printRoot) return;
 
-    await html2pdf()
-      .set({
-        margin: 0,
-        filename: `${name.replace(/\s+/g, "_")}_Resume.pdf`,
-        image: { type: "png", quality: 1 },
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          letterRendering: true,
-          scrollX: 0,
-          scrollY: 0,
-          backgroundColor: "#ffffff",
-        },
-        jsPDF: {
-          unit: "mm",
-          format: "a4",
-          orientation: "portrait",
-        },
-      })
-      .from(element)
-      .save();
-  } catch (err) {
-    console.error("PDF generation failed:", err);
-    alert("PDF download failed. Please try again.");
-  } finally {
-    setDownloading(false);
-  }
+  printRoot.innerHTML = "";
+  printRoot.appendChild(resume.cloneNode(true));
+  printRoot.style.display = "block";
+
+  window.print();
+
+  setTimeout(() => {
+    printRoot.innerHTML = "";
+    printRoot.style.display = "none";
+  }, 1000);
 };
   return (
     <>
@@ -78,20 +57,9 @@ const handleDownload = async () => {
     {/* <Button variant="ghost" size="sm" onClick={clearAll} className="hidden sm:flex">
       🗑 Clear
     </Button> */}
-    <Button variant="download" size="sm" onClick={handleDownload} disabled={downloading}>
-      {downloading ? (
-        <>
-          <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-          <span className="hidden sm:inline">Generating…</span>
-        </>
-      ) : (
-        <>
-          <span>⬇</span>
-          <span className="hidden sm:inline">Download PDF</span>
-          <span className="sm:hidden">PDF</span>
-        </>
-      )}
-    </Button>
+    <Button variant="download" size="sm" onClick={handleDownload}>
+  ⬇ Download PDF
+</Button>
   </div>
 </header>
 

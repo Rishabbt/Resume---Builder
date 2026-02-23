@@ -1,13 +1,12 @@
 /* Google Fonts must be imported BEFORE @tailwind directives */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-dm-sans: 'DM Sans', sans-serif;
-  --font-playfair: 'Playfair Display', serif;
+--font-dm-sans: 'Roboto', sans-serif;  --font-playfair: 'Playfair Display', serif;
   --font-ibm-mono: 'IBM Plex Mono', monospace;
   --font-cormorant: 'Cormorant Garamond', serif;
 }
@@ -19,11 +18,15 @@
 
 /* Resume template styles — scoped to #resume-root */
 #resume-root {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 100%;
   width: 794px;
   min-height: 1123px;
   background: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 /* ── EXECUTIVE TEMPLATE ── */
@@ -73,7 +76,7 @@
   border-left: 6px solid;
 }
 .tpl-minimal .r-name {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 2.4rem;
   font-weight: 700;
   color: #1a1a2e;
@@ -277,7 +280,7 @@
 .exp-title { font-weight: 700; font-size: 0.88rem; }
 .exp-date { font-size: 0.7rem; color: #6b7280; white-space: nowrap; margin-left: 0.5rem; }
 .exp-company { font-size: 0.78rem; font-weight: 600; margin: 0.15rem 0 0.4rem; }
-.exp-desc { font-size: 0.76rem; color: #4b5563; line-height: 1.65; }
+.exp-desc { font-size: 0.76rem; color: #000000; line-height: 1.65; }
 .edu-item { margin-bottom: 1rem; }
 .edu-degree { font-weight: 700; font-size: 0.84rem; }
 .edu-school { font-size: 0.76rem; margin-top: 0.1rem; }
@@ -291,8 +294,8 @@
 .proj-item { margin-bottom: 1.1rem; }
 .proj-name { font-weight: 700; font-size: 0.87rem; }
 .proj-tech { font-size: 0.72rem; font-weight: 600; margin: 0.1rem 0 0.3rem; }
-.proj-desc { font-size: 0.76rem; color: #4b5563; line-height: 1.65; }
-.summary-text { font-size: 0.79rem; line-height: 1.75; color: #4b5563; }
+.proj-desc { font-size: 0.76rem; color: #000000; line-height: 1.65; }
+.summary-text { font-size: 0.79rem; line-height: 1.75; color: #000000; }
 
 
 
@@ -300,13 +303,19 @@
 
 @media print {
   * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
     #resume-root {
-  height: auto !important;
-  min-height: unset !important;
-  page-break-after: avoid !important;
-  overflow: hidden !important;
+  font-family: 'Roboto', sans-serif;
+   color: #000000;
+
+  font-size: 100%;
+  width: 794px;
+  min-height: 1123px;
+  background: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 0, "clig" 0;
+  font-variant-ligatures: none;
 }
   }
   #resume-root {
@@ -330,12 +339,14 @@
     opacity: 1 !important;
     filter: none !important;
   }
+  
+  /*  do not touch it give the color to skill tags
   .skill-tag {
     background-color: #1a1a2e !important;
     color: #ffffff !important;
     opacity: 1 !important;
     font-weight: 600 !important;
-  }
+  } */
   @page {
     size: A4;
     margin: 0;
