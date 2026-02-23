@@ -285,7 +285,19 @@
 .skill-group { margin-bottom: 1rem; }
 .skill-group-name { font-size: 0.7rem; font-weight: 700; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.skill-tag { color: white; padding: 0.18rem 0.55rem; border-radius: 4px; font-size: 0.68rem; font-weight: 500; }
+.skill-tag {
+  color: #ffffff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  opacity: 1;
+  -webkit-font-smoothing: antialiased;
+}
 .proj-item { margin-bottom: 1.1rem; }
 .proj-name { font-weight: 700; font-size: 0.87rem; }
 .proj-tech { font-size: 0.72rem; font-weight: 600; margin: 0.1rem 0 0.3rem; }
@@ -301,7 +313,6 @@
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
-
   body > *:not(#print-root) { display: none !important; }
   #print-root {
     display: block !important;
@@ -318,35 +329,17 @@
   #resume-root * {
     opacity: 1 !important;
     filter: none !important;
-    color: inherit !important;  /* prevents faded text */
+  }
+  .skill-tag {
+    background-color: #1a1a2e !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
   }
   @page {
     size: A4;
     margin: 0;
   }
-  @media print {
-  #resume-root,
-  #resume-root * {
-    font-family: Georgia, 'Times New Roman', Times, serif !important;
-  }
-
-  #resume-root .r-name,
-  #resume-root .exp-title,
-  #resume-root .proj-name,
-  #resume-root .edu-degree {
-    font-family: Georgia, 'Times New Roman', Times, serif !important;
-    font-weight: bold !important;
-  }
-
-  #resume-root .r-section-title,
-  #resume-root .skill-tag,
-  #resume-root .exp-date,
-  #resume-root .exp-desc,
-  #resume-root .proj-desc,
-  #resume-root .summary-text {
-    font-family: Arial, Helvetica, sans-serif !important;
-  }
-}
 }
 /* ── CLASSIC TEMPLATE (Rishabh style) ── */
 .tpl-classic .r-header {

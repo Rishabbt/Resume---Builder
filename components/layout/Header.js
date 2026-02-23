@@ -9,30 +9,43 @@ export default function Header({ onMenuToggle }) {
   const [showTech, setShowTech] = useState(false);
 
   const handleDownload = async () => {
-    setDownloading(true);
-    try {
-      // Dynamic import with ssr:false equivalent — import only runs client-side
-      const html2pdf = (await import("html2pdf.js")).default;
-      const element = document.getElementById("resume-root");
-      if (!element) return;
-      const name = resumeData.personal.name || "Resume";
-      await html2pdf()
-        .set({
-          margin: 0,
-          filename: `${name.replace(/\s+/g, "_")}_Resume.pdf`,
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true, letterRendering: true },
-          jsPDF: { unit: "pt", format: "a4", orientation: "portrait" },
-        })
-        .from(element)
-        .save();
-    } catch (err) {
-      console.error("PDF generation failed:", err);
-      alert("PDF download failed. Please try again.");
-    } finally {
-      setDownloading(false);
-    }
-  };
+  setDownloading(true);
+  try {
+    const html2pdf = (await import("html2pdf.js")).default;
+    const element = document.getElementById("resume-root");
+    if (!element) return;
+    const name = resumeData.personal.name || "Resume";
+
+    await html2pdf()
+      .set({
+        margin: 0,
+        filename: `${name.replace(/\s+/g, "_")}_Resume.pdf`,
+        image: { type: "png", quality: 1 },
+        html2canvas: {
+          scale: 3,
+          useCORS: true,
+          letterRendering: true,
+          scrollX: 0,
+          scrollY: -window.scrollY,
+          backgroundColor: "#ffffff",
+          allowTaint: true,
+        },
+        jsPDF: {
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait",
+          compress: false,
+        },
+      })
+      .from(element)
+      .save();
+  } catch (err) {
+    console.error("PDF generation failed:", err);
+    alert("PDF download failed. Please try again.");
+  } finally {
+    setDownloading(false);
+  }
+};
 
   return (
     <>

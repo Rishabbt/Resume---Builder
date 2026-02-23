@@ -93,6 +93,8 @@ export const ACCENT_COLORS = {
   purple: { accent: "#7c3aed", gold: "#a78bfa", dark: "#2e1065", tw: "bg-[#7c3aed]" },
   rose:   { accent: "#e11d48", gold: "#fb7185", dark: "#4c0519", tw: "bg-[#e11d48]" },
   amber:  { accent: "#d97706", gold: "#fbbf24", dark: "#451a03", tw: "bg-[#d97706]" },
+  blackwhite: { accent: "#000000"}, 
+
 };
 
 // ─── Section Order Config ──────────────────────────────────────────────────
