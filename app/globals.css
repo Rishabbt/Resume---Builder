@@ -349,10 +349,24 @@
     height: auto !important;
   }
 
-  @page {
-    size: A4;
-    margin: 10mm;
-  }
+ @page {
+  size: A4;
+  margin: 15mm 10mm;
+}
+
+
+
+#resume-root .exp-item {
+  page-break-inside: avoid;
+}
+
+#resume-root .proj-item {
+  page-break-inside: avoid;
+}
+
+#resume-root .edu-item {
+  page-break-inside: avoid;
+}
 }
 /* ── CLASSIC TEMPLATE (Rishabh style) ── */
 .tpl-classic .r-header {
