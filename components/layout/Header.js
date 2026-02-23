@@ -18,9 +18,9 @@ const handleDownload = async () => {
       if (!element) return;
       const name = resumeData.personal.name || "Resume";
 
-    await html2pdf()
+await html2pdf()
   .set({
-    margin: [15, 10, 15, 10],
+    margin: [10, 10, 10, 10],
     filename: `${name.replace(/\s+/g, "_")}_Resume.pdf`,
     image: { type: "png", quality: 1 },
     html2canvas: {
@@ -30,6 +30,7 @@ const handleDownload = async () => {
       scrollX: 0,
       scrollY: 0,
       windowWidth: 794,
+      width: 794,
     },
     jsPDF: {
       unit: "mm",
