@@ -157,8 +157,15 @@
 .tpl-elegant .r-side .skill-tag {
   background: rgba(255,255,255,0.12) !important;
 }
+.tpl-elegant .r-side .skill-tag {
+  color: #ffffff !important;
+}
 
-.tpl-elegant .r-side .edu-school,
+.tpl-elegant .r-side .skill-group-name {
+  color: #ffffff !important;
+}
+
+.tpl-elegant .r-side .edu-school ,
 .tpl-elegant .r-side .edu-date { color: rgba(255,255,255,0.55) !important; }
 .tpl-elegant .r-side .edu-degree { color: white !important; }
 .tpl-elegant .r-side .summary-text { color: rgba(255,255,255,0.78) !important; }
