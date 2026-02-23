@@ -8,10 +8,9 @@ export default function PreviewPane() {
   useEffect(() => {
     const updateScale = () => {
       const isMobile = window.innerWidth < 1024;
-      // On mobile sidebar is hidden, full width available
       const availableWidth = isMobile
-        ? window.innerWidth - 32  // 32 = padding
-        : window.innerWidth - 430 - 64; // 430 sidebar + 64 padding
+        ? window.innerWidth - 24
+        : window.innerWidth - 430 - 64;
       const resumeWidth = 794;
       const newScale = Math.min(1, availableWidth / resumeWidth);
       setScale(newScale);
@@ -23,7 +22,7 @@ export default function PreviewPane() {
   }, []);
 
   return (
-    <main className="flex-1 overflow-auto bg-[#d8d5cf] flex justify-center items-start p-4 md:p-8">
+    <main className="flex-1 overflow-auto bg-[#d8d5cf] flex justify-center items-start p-2 md:p-8">
       <div
         style={{
           transform: `scale(${scale})`,

@@ -67,14 +67,9 @@ const DEMO_DATA = {
       tech: "Javascript, React.js, Tailwind CSS, Puter.js(for handling backend operation)",
       desc: "∗ Built an AI-powered ATS Resume Analyzer to evaluate resumes and generate ATS scores with improvement tips.\n ∗  Implemented smart job matching and keyword optimization. And generate actionable suggestions, with dynamic model switching enabled through Puter.js.\n ∗ Integrated AI to provide personalized feedback and identify areas of improvement based on specific job descriptions. And also analysis resume to identify strengths, highlight improvement areas.\n ∗ Utilized Puter.js for backend operations, free API key management, and system orchestration.\n ∗ Designed the workflow to automate resume parsing, evaluation, and recommendation generation.",
     },
+   
     {
       id: "p2",
-      name: "Portfolio Website",
-      tech: "Javascript, React.js, Next.js, tailwind CSS",
-      desc: "∗ Developed a modern, responsive e-commerce platform to solve poor navigation and inconsistent layouts commonly found in small online stores.\n ∗ Redesigned user flow to reduce friction during browsing and checkout, resulting in smoother product discovery and shopping experience.\n∗ Implemented a clean, component-based UI using React and Next.js to improve maintainability and page load performance.\n∗ Built fully responsive layouts with Tailwind CSS to fix mobile usability issues and ensure consistent design across devices.\n∗ Optimized UI structure and state handling to eliminate unnecessary re-renders, improving overall application responsiveness.",
-    },
-    {
-      id: "p3",
       name: "E-commerce Website",
       tech: "Javascript, React.js, Next.js, tailwind CSS",
       desc: "∗ Developed a modern, responsive e-commerce platform to solve poor navigation and inconsistent layouts commonly found in small online stores.\n ∗ Redesigned user flow to reduce friction during browsing and checkout, resulting in smoother product discovery and shopping experience.\n ∗ Implemented a clean, component-based UI using React and Next.js to improve maintainability and page load performance.\n ∗ Built fully responsive layouts with Tailwind CSS to fix mobile usability issues and ensure consistent design across devices.∗ Optimized UI structure and state handling to eliminate unnecessary re-renders, improving overall application responsiveness.",
