@@ -284,20 +284,10 @@
 .edu-date { font-size: 0.7rem; }
 .skill-group { margin-bottom: 1rem; }
 .skill-group-name { font-size: 0.7rem; font-weight: 700; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
-.skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.skill-tag {
-  color: #ffffff;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.68rem;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  opacity: 1;
-  -webkit-font-smoothing: antialiased;
-}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.3rem 0.5rem; }
+.skill-tag { color: #374151; font-size: 0.72rem; font-weight: 500; display: inline; background: none; padding: 0; border-radius: 0; }
+.skill-tag::after { content: ' ·'; color: #9ca3af; }
+.skill-tag:last-child::after { content: ''; }
 .proj-item { margin-bottom: 1.1rem; }
 .proj-name { font-weight: 700; font-size: 0.87rem; }
 .proj-tech { font-size: 0.72rem; font-weight: 600; margin: 0.1rem 0 0.3rem; }
@@ -312,7 +302,17 @@
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    #resume-root {
+  height: auto !important;
+  min-height: unset !important;
+  page-break-after: avoid !important;
+  overflow: hidden !important;
+}
   }
+  #resume-root {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
   body > *:not(#print-root) { display: none !important; }
   #print-root {
     display: block !important;

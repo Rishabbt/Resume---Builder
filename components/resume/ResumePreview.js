@@ -73,19 +73,13 @@ function ProjectsSection({ data, accent }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  fontSize: "0.68rem",
-                  color: accent.accent,
-                  textDecoration: "none",
-                  borderColor: accent.accent,
-                  borderWidth: "1px",
-                  borderStyle: "solid",
-                  borderRadius: "4px",
-                  padding: "0.1rem 0.45rem",
-                  fontWeight: 600,
-                  whiteSpace: "nowrap",
-                }}
+                   fontSize: "0.72rem",
+                   color: accent.accent,
+                   textDecoration: "none",
+                   fontWeight: 600,
+                   }}
               >
-                ↗ View
+                  View
               </a>
             )}
           </div>
@@ -110,12 +104,8 @@ function SkillsSection({ data, accent }) {
           {s.category && <div className="skill-group-name">{s.category}</div>}
           <div className="skill-tags">
             {(s.items || "").split(",").filter((x) => x.trim()).map((tag, idx) => (
-              <span
-                key={idx}
-                className="skill-tag"
-                style={{ background: accent.accent }}
-              >
-                {tag.trim()}
+              <span key={idx} className="skill-tag">
+              {tag.trim()}
               </span>
             ))}
           </div>
@@ -306,7 +296,6 @@ export default function ResumePreview() {
       </div>
     );
   }
-  // Creative
   if (template === "tpl-creative") {
   return (
     <div id="resume-root" className="tpl-creative" style={{ fontSize: `${fontScale}%` }}>
@@ -342,7 +331,7 @@ if (template === "tpl-classic") {
       <div className="r-body">
         <div className="r-main">
           {allSections.map((s) => (
-            <RenderSection key={s.id} sectionId={s.id} data={resumeData} accent={accent} />
+            <RenderSection key={s.id} sectionId={s.id} data={resumeData} accent={accent} template={template} />
           ))}
         </div>
         <div className="r-side" />
@@ -350,6 +339,8 @@ if (template === "tpl-classic") {
     </div>
   );
 }
+
+
 
   return null;
 }

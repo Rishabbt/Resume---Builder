@@ -7,8 +7,7 @@ export default function Header({ onMenuToggle }) {
   const { loadDemo, clearAll, resumeData } = useResume();
   const [downloading, setDownloading] = useState(false);
   const [showTech, setShowTech] = useState(false);
-
-  const handleDownload = async () => {
+const handleDownload = async () => {
   setDownloading(true);
   try {
     const html2pdf = (await import("html2pdf.js")).default;
@@ -22,19 +21,17 @@ export default function Header({ onMenuToggle }) {
         filename: `${name.replace(/\s+/g, "_")}_Resume.pdf`,
         image: { type: "png", quality: 1 },
         html2canvas: {
-          scale: 3,
+          scale: 2,
           useCORS: true,
           letterRendering: true,
           scrollX: 0,
-          scrollY: -window.scrollY,
+          scrollY: 0,
           backgroundColor: "#ffffff",
-          allowTaint: true,
         },
         jsPDF: {
           unit: "mm",
           format: "a4",
           orientation: "portrait",
-          compress: false,
         },
       })
       .from(element)
@@ -46,7 +43,6 @@ export default function Header({ onMenuToggle }) {
     setDownloading(false);
   }
 };
-
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 h-14 bg-[#1a1a2e] flex items-center justify-between px-4 md:px-5 shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
