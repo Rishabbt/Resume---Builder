@@ -158,7 +158,7 @@ function Contacts({ personal, className = "" }) {
     personal.location && { label: `⌖  ${personal.location}`, href: null },
     personal.linkedin && { label: "in LinkedIn",  display: "LinkedIn", href: personal.linkedin.startsWith("http") ? personal.linkedin : `https://${personal.linkedin}` },
     personal.github   && { label: "⌥ GitHub",    display: "GitHub", href: personal.github.startsWith("http") ? personal.github : `https://${personal.github}` },
-    personal.website  && { label: "🌐 Website",   display: "Website",  href: personal.website.startsWith("http") ? personal.website : `https://${personal.website}` },
+    personal.website  && { label: "🌐 Portfolio",   display: "Website",  href: personal.website.startsWith("http") ? personal.website : `https://${personal.website}` },
   ].filter(Boolean);
 
   return (

@@ -10,12 +10,12 @@ import SectionOrderForm from "@/components/forms/SectionOrderForm";
 import clsx from "clsx";
 
 const TABS = [
+  { id: "style",     label: "Style",    icon: "🎨" },
   { id: "personal",  label: "Info",     icon: "👤" },
   { id: "work",      label: "Work",     icon: "💼" },
   { id: "education", label: "Edu",      icon: "🎓" },
   { id: "skills",    label: "Skills",   icon: "⚙️"  },
   { id: "projects",  label: "Projects", icon: "🚀" },
-  { id: "style",     label: "Style",    icon: "🎨" },
   { id: "order",     label: "Order",    icon: "↕"  },
 ];
 

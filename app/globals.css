@@ -495,12 +495,13 @@
   margin-bottom: 0.5rem;
 }
 .tpl-classic .skill-group-name {
-  display: inline;
+  display: block;
   font-weight: 700;
   font-size: 0.8rem;
+  margin-bottom: 0.2rem;
 }
 .tpl-classic .skill-tags {
-  display: inline;
+  display: block;
 }
 .tpl-classic .skill-tag {
   display: inline;
