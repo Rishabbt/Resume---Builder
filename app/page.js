@@ -1,12 +1,22 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ResumeProvider } from "@/context/ResumeContext";
 import Header from "@/components/layout/Header";
 import Sidebar from "@/components/layout/Sidebar";
 import PreviewPane from "@/components/layout/PreviewPane";
 
 export default function HomePage() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+ const [sidebarOpen, setSidebarOpen] = useState(false);
+
+useEffect(() => {
+  const isMobile = window.innerWidth < 1024;
+  if (isMobile) {
+    const timer = setTimeout(() => {
+      setSidebarOpen(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }
+}, []);
 
   return (
     <ResumeProvider>
