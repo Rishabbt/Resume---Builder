@@ -73,7 +73,7 @@ export default function Header({ onMenuToggle }) {
           <button
             onClick={handleDownload}
             disabled={downloading}
-            className="flex items-center gap-1.5 bg-green hover:bg-[#c1121f] disabled:opacity-60 text-white text-[0.72rem] font-semibold px-3 py-1.5 rounded-lg transition-all"
+            className="flex items-center gap-1.5 bg-green-600 hover:bg-[#c1121f] disabled:opacity-60 text-white text-[0.72rem] font-semibold px-3 py-1.5 rounded-lg transition-all"
           >
             {downloading ? (
               <><span className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin" /><span className="hidden sm:inline">Generating…</span></>
