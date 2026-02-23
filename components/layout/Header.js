@@ -134,9 +134,9 @@ function DevInfoModal({ onClose }) {
             <div className="text-white/40 text-[0.62rem] uppercase tracking-widest font-mono mb-3">Links</div>
             <div className="grid grid-cols-2 gap-2">
               {[
-                { icon: "🔗", label: "LinkedIn",  href: "https://linkedin.com/in/rishabh-tripathi" },
-                { icon: "⎇",  label: "GitHub",    href: "https://github.com/rishabhtripathi" },
-                { icon: "🌐", label: "Portfolio", href: "https://rishabhtripathi.vercel.app" },
+                { icon: "🔗", label: "LinkedIn",  href: "https://www.linkedin.com/in/rishabh-tripathi-575252290/" },
+                { icon: "⎇",  label: "GitHub",    href: "https://github.com/Rishabbt" },
+                { icon: "🌐", label: "Portfolio", href: "https://portfolio-website-ecru-three-44.vercel.app/" },
                 { icon: "✉",  label: "Email",     href: "mailto:rishabhtripathi1956@gmail.com" },
               ].map((link) => (
                 <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer"
