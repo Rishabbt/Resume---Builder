@@ -18,31 +18,31 @@ const handleDownload = async () => {
       if (!element) return;
       const name = resumeData.personal.name || "Resume";
 
-      await html2pdf()
-        .set({
-          margin: 0,
-          filename: `${name.replace(/\s+/g, "_")}_Resume.pdf`,
-          image: { type: "png", quality: 1 },
-          html2canvas: {
-            scale: 2,
-            useCORS: true,
-            backgroundColor: "#ffffff",
-            scrollX: 0,
-            scrollY: 0,
-            windowWidth: 794,
-          },
-          jsPDF: {
-            unit: "mm",
-            format: "a4",
-            orientation: "portrait",
-          },
-          pagebreak: {
-            mode: ["css", "legacy"],
-            before: ".page-break",
-          },
-        })
-        .from(element)
-        .save();
+    await html2pdf()
+  .set({
+    margin: [15, 10, 15, 10],
+    filename: `${name.replace(/\s+/g, "_")}_Resume.pdf`,
+    image: { type: "png", quality: 1 },
+    html2canvas: {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: "#ffffff",
+      scrollX: 0,
+      scrollY: 0,
+      windowWidth: 794,
+    },
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait",
+    },
+    pagebreak: {
+      mode: ["css", "legacy"],
+      avoid: [".exp-item", ".proj-item", ".edu-item"],
+    },
+  })
+  .from(element)
+  .save();
     } catch (err) {
       console.error("PDF failed:", err);
     } finally {
