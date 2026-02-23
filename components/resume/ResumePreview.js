@@ -149,22 +149,24 @@ function RenderSection({ sectionId, data, accent }) {
 // ── Contact Icons ─────────────────────────────────────────────────────────
 function Contacts({ personal, className = "" }) {
   const items = [
-    personal.email    && { label: `✉ ${personal.email}`,    href: `mailto:${personal.email}` },
+    personal.email    && { label: `✉ ${ personal.email}`,    href: `mailto:${personal.email}` },
     personal.phone    && { label: `☎ ${personal.phone}`,    href: `tel:${personal.phone}` },
-    personal.location && { label: `⌖ ${personal.location}`, href: null },
-    personal.linkedin && { label: `in ${personal.linkedin}`, href: personal.linkedin.startsWith("http") ? personal.linkedin : `https://${personal.linkedin}` },
-    personal.github   && { label: `⌥ ${personal.github}`,   href: personal.github.startsWith("http") ? personal.github : `https://${personal.github}` },
-    personal.website  && { label: `⬡ ${personal.website}`,  href: personal.website.startsWith("http") ? personal.website : `https://${personal.website}` },
+    personal.location && { label: `⌖  ${personal.location}`, href: null },
+    personal.linkedin && { label: "in LinkedIn",  display: "LinkedIn", href: personal.linkedin.startsWith("http") ? personal.linkedin : `https://${personal.linkedin}` },
+    personal.github   && { label: "⌥ GitHub",    display: "GitHub", href: personal.github.startsWith("http") ? personal.github : `https://${personal.github}` },
+    personal.website  && { label: "🌐 Website",   display: "Website",  href: personal.website.startsWith("http") ? personal.website : `https://${personal.website}` },
   ].filter(Boolean);
 
   return (
     <div className={`r-contacts ${className}`}>
       {items.map((c, i) =>
         c.href ? (
-          <a key={i} href={c.href} target="_blank" rel="noopener noreferrer"
-            style={{ color: "inherit", textDecoration: "none" }}
-            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+          <a
+            key={i}
+            href={c.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "2px" }}
           >
             {c.label}
           </a>

@@ -4,22 +4,22 @@ import { createContext, useContext, useState, useCallback } from "react";
 // ─── Default / Demo Data ───────────────────────────────────────────────────
 const DEMO_DATA = {
   personal: {
-    name: "Girish Thatte",
+    name: "Rishabh Tripathi",
     title: "Software Engineer",
     summary:
       "Results-driven Software Engineer with expertise in full-stack development, algorithms, and system design. IIT Hyderabad M.Tech CSE graduate with GATE AIR-289. Passionate about building scalable, high-performance applications that create real-world impact.",
     email: "girish@example.com",
     phone: "+91 98765 43210",
-    location: "Mumbai, India",
-    linkedin: "in/girish-thatte",
-    github: "github.com/girishgr8",
-    website: "girishgr8.github.io",
+    location: "Delhi, India",
+    linkedin: "https://www.linkedin.com/in/rishabh-tripathi-575252290/",
+    github: "https://github.com/Rishabbt",
+    website: "https://portfolio-website-ecru-three-44.vercel.app/",
   },
   works: [
     {
       id: "w1",
       role: "Software Engineer",
-      company: "Qualcomm",
+      company: "Dummy Company",
       location: "Hyderabad",
       start: "Jul 2024",
       end: "Present",
@@ -28,7 +28,7 @@ const DEMO_DATA = {
     {
       id: "w2",
       role: "Associate Consultant",
-      company: "Oracle Financial Services",
+      company: "Dummy Company",
       location: "Mumbai",
       start: "Jul 2022",
       end: "Jun 2023",
@@ -38,7 +38,7 @@ const DEMO_DATA = {
   education: [
     {
       id: "e1",
-      degree: "M.Tech in Computer Science & Engineering",
+      degree: " Computer Science & Engineering",
       school: "IIT Hyderabad",
       start: "2022",
       end: "2024",
