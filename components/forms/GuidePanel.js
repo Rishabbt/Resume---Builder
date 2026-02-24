@@ -4,18 +4,18 @@ export default function GuidePanel() {
   return (
     <div className="flex flex-col gap-4">
       <p className="text-[0.8rem] text-[#6b7280] leading-relaxed">
-        Welcome to <strong>ResumeCraft Pro</strong>! Fill in your details using the tabs above and see your resume update live on the right.
+        Welcome to <strong>ResumeCraft Pro</strong>! Fill in your details using the tabs above and see your resume update live on the right.<br/> <strong>It is not necessary to fill every field in the form. </strong> 
       </p>
 
       <div className="flex flex-col gap-2.5">
         {[
-          { step: "1", label: "Info",     desc: "Add your name, title, contacts and summary" },
-          { step: "2", label: "Work",     desc: "Add your work experience entries" },
-          { step: "3", label: "Edu",      desc: "Add your education details" },
-          { step: "4", label: "Skills",   desc: "Add skill groups with comma separated items" },
-          { step: "5", label: "Projects", desc: "Add your projects with links" },
-          { step: "6", label: "Style",    desc: "Pick a template, accent color and font size" },
-          { step: "7", label: "Order",    desc: "Drag to reorder sections and toggle visibility" },
+          { step: "1", label: "Info :",     desc: "Add your name, title, contacts and summary" },
+          { step: "2", label: "Work :",     desc: "Add your work experience entries" },
+          { step: "3", label: "Edu :",      desc: "Add your education details" },
+          { step: "4", label: "Skills :",   desc: "Add skill groups with comma separated items" },
+          { step: "5", label: "Projects :", desc: "Add your projects with links" },
+          { step: "6", label: "Style :",    desc: "Pick a template, accent color and font size" },
+          { step: "7", label: "Order :",    desc: "Drag to reorder sections and toggle visibility" },
         ].map((item) => (
           <div key={item.step} className="flex gap-3 items-start">
             <span className="w-6 h-6 rounded-full bg-[#1a1a2e] text-white text-[0.65rem] font-bold flex items-center justify-center flex-shrink-0">
@@ -28,6 +28,7 @@ export default function GuidePanel() {
           </div>
         ))}
       </div>
+     
 
       <div className="border border-[#e2ddd6] rounded-xl overflow-hidden mt-2">
         <div className="bg-[#1a1a2e] px-4 py-2.5">
