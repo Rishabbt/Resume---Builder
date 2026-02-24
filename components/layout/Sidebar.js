@@ -70,6 +70,15 @@ export default function Sidebar() {
         {activeTab === "projects"  && <ProjectsForm />}
         {activeTab === "order"     && <SectionOrderForm />}
       </div>
+      {/* Mobile Developer Info button */}
+<div className="lg:hidden border-t border-[#e2ddd6] p-3 flex-shrink-0">
+  <button
+    onClick={() => document.dispatchEvent(new CustomEvent("openDevModal"))}
+    className="w-full flex items-center justify-center gap-2 bg-[#1a1a2e] text-white text-[0.72rem] font-semibold py-2.5 rounded-xl hover:bg-[#2d2d4e] transition-all"
+  >
+    👨‍💻 <span>Developer Info</span>
+  </button>
+</div>
     </aside>
   );
 }

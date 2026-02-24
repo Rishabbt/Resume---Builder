@@ -18,6 +18,7 @@ useEffect(() => {
   }
 }, []);
 
+
   return (
     <ResumeProvider>
       <div className="flex flex-col h-screen overflow-hidden bg-[#f0ede8]">

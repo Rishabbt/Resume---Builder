@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useResume } from "@/context/ResumeContext";
 import Button from "@/components/ui/Button";
 
@@ -8,6 +8,12 @@ export default function Header({ onMenuToggle }) {
   const [downloading, setDownloading] = useState(false);
   const [showTech, setShowTech] = useState(false);
   const [showDev, setShowDev] = useState(false);
+
+  useEffect(() => {
+  const handler = () => setShowDev(true);
+  document.addEventListener("openDevModal", handler);
+  return () => document.removeEventListener("openDevModal", handler);
+}, []);
 
   const handleDownload = async () => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -61,15 +67,15 @@ export default function Header({ onMenuToggle }) {
           <button onClick={() => setShowDev(true)} className="hidden sm:flex items-center gap-1 text-white/60 hover:text-white text-[0.72rem] px-2 py-1 rounded hover:bg-white/10 transition-all">
             👨‍💻 <span className="hidden md:inline">Developer</span>
           </button>
-          <button onClick={() => setShowTech(true)} className="hidden sm:flex items-center gap-1 text-white/60 hover:text-white text-[0.72rem] px-2 py-1 rounded hover:bg-white/10 transition-all">
+          {/* <button onClick={() => setShowTech(true)} className="hidden sm:flex items-center gap-1 text-white/60 hover:text-white text-[0.72rem] px-2 py-1 rounded hover:bg-white/10 transition-all">
             🛠 <span className="hidden md:inline">Tech Stack</span>
-          </button>
-          <button onClick={loadDemo} className="hidden sm:flex items-center gap-1 text-white/60 hover:text-white text-[0.72rem] px-2 py-1 rounded hover:bg-white/10 transition-all">
+          </button> */}
+          {/* <button onClick={loadDemo} className="hidden sm:flex items-center gap-1 text-white/60 hover:text-white text-[0.72rem] px-2 py-1 rounded hover:bg-white/10 transition-all">
             📋 <span className="hidden md:inline">Demo</span>
-          </button>
-          <button onClick={clearAll} className="hidden sm:flex items-center gap-1 text-white/60 hover:text-white text-[0.72rem] px-2 py-1 rounded hover:bg-white/10 transition-all">
+          </button> */}
+          {/* <button onClick={clearAll} className="hidden sm:flex items-center gap-1 text-white/60 hover:text-white text-[0.72rem] px-2 py-1 rounded hover:bg-white/10 transition-all">
             🗑 <span className="hidden md:inline">Clear</span>
-          </button>
+          </button> */}
           <button
             onClick={handleDownload}
             disabled={downloading}
@@ -108,7 +114,7 @@ function DevInfoModal({ onClose }) {
             <div>
               <div className="text-white font-bold text-[1rem] sm:text-[1.1rem]">Rishabh Tripathi</div>
               <div className="text-white/40 text-[0.75rem]">Frontend Developer</div>
-              <div className="text-white/30 text-[0.7rem] mt-0.5">📍 Nangloi, Delhi, India</div>
+              <div className="text-white/30 text-[0.7rem] mt-0.5">📍Delhi, India</div>
             </div>
           </div>
           <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-3.5 sm:p-4">

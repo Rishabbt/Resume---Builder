@@ -7,7 +7,7 @@ const DEMO_DATA = {
     name: "Rishabh Tripathi",
     title: "Software Engineer",
     summary:
-      "Results-driven Software Engineer with expertise in full-stack development, algorithms, and system design. IIT Hyderabad M.Tech CSE graduate with GATE AIR-289. Passionate about building scalable, high-performance applications that create real-world impact.",
+      "Passionate frontend developer skilled in building responsive, user-friendly web applications. Currently pursuing BCA and constantly learning new technologies to craft better digital experiences.",
     email: "rishabhtripathi1956@gmail.com",
     phone: "+91 9X765 X321X",
     location: "Delhi, India",
@@ -64,15 +64,18 @@ const DEMO_DATA = {
     {
       id: "p1",
       name: "AI Resume Analyzer",
+      link:"https://ai-resumep-analyzer.vercel.app/",
       tech: "Javascript, React.js, Tailwind CSS, Puter.js(for handling backend operation)",
       desc: "∗ Built an AI-powered ATS Resume Analyzer to evaluate resumes and generate ATS scores with improvement tips.\n ∗  Implemented smart job matching and keyword optimization. And generate actionable suggestions, with dynamic model switching enabled through Puter.js.\n ∗ Integrated AI to provide personalized feedback and identify areas of improvement based on specific job descriptions. And also analysis resume to identify strengths, highlight improvement areas.\n ∗ Utilized Puter.js for backend operations, free API key management, and system orchestration.\n ∗ Designed the workflow to automate resume parsing, evaluation, and recommendation generation.",
     },
    
     {
       id: "p2",
+      link: "https://e-commerce-fashtech.vercel.app/",   
       name: "E-commerce Website",
       tech: "Javascript, React.js, Next.js, tailwind CSS",
       desc: "∗ Developed a modern, responsive e-commerce platform to solve poor navigation and inconsistent layouts commonly found in small online stores.\n ∗ Redesigned user flow to reduce friction during browsing and checkout, resulting in smoother product discovery and shopping experience.\n ∗ Implemented a clean, component-based UI using React and Next.js to improve maintainability and page load performance.\n ∗ Built fully responsive layouts with Tailwind CSS to fix mobile usability issues and ensure consistent design across devices.∗ Optimized UI structure and state handling to eliminate unnecessary re-renders, improving overall application responsiveness.",
+      
     },
   ],
 };
