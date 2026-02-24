@@ -4,6 +4,8 @@ import { ResumeProvider } from "@/context/ResumeContext";
 import Header from "@/components/layout/Header";
 import Sidebar from "@/components/layout/Sidebar";
 import PreviewPane from "@/components/layout/PreviewPane";
+import Script from "next/script";
+
 
 export default function HomePage() {
  const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -21,6 +23,19 @@ useEffect(() => {
 
   return (
     <ResumeProvider>
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-EBK1SC2J89"
+      />
+
+      <Script strategy="afterInteractive" id="ga-script">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-EBK1SC2J89');
+        `}
+      </Script>
       <div className="flex flex-col h-screen overflow-hidden bg-[#f0ede8]">
         <Header onMenuToggle={() => setSidebarOpen((v) => !v)} />
         <div className="flex flex-1 overflow-hidden mt-14 relative">

@@ -8,20 +8,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
+       <head>
+        {/* Google Analytics */}
         <Script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-EBK1SC2J89"
-  strategy="afterInteractive"
-/>
-<Script id="google-analytics" strategy="afterInteractive">
-  {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-EBK1SC2J89');
-  `}
-</Script>
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-EBK1SC2J89"
+        />
+
+        <Script strategy="afterInteractive" id="ga-script">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-EBK1SC2J89');
+          `}
+        </Script>
       </head>
       <body className="antialiased">
         {children}
