@@ -77,6 +77,14 @@ const DEMO_DATA = {
       desc: "∗ Developed a modern, responsive e-commerce platform to solve poor navigation and inconsistent layouts commonly found in small online stores.\n ∗ Redesigned user flow to reduce friction during browsing and checkout, resulting in smoother product discovery and shopping experience.\n ∗ Implemented a clean, component-based UI using React and Next.js to improve maintainability and page load performance.\n ∗ Built fully responsive layouts with Tailwind CSS to fix mobile usability issues and ensure consistent design across devices.∗ Optimized UI structure and state handling to eliminate unnecessary re-renders, improving overall application responsiveness.",
       
     },
+    {
+      id: "p3",
+      link: "https://resume-builder-two-bay.vercel.app/",   
+      name: "Resume Buillder",
+      tech: "Javascript, React.js, Next.js, tailwind CSS",
+      desc: "∗ Engineered a full-featured resume builder with live real-time preview, enabling users to see formatting changes instantly without page reloads — deployed on Vercel and actively used by **real users** \n∗ Built a multi-template rendering engine with dynamic accent color and font customization, allowing users to switch between professional layouts while preserving all entered data. \n∗ Implemented drag-and-drop section reordering using positional **state management **, giving users full control over resume structure with smooth, intuitive interactions.\n∗ Designed a custom markdown-style text formatter supporting bold, italic, code, and bullet syntax inside input fields — parsed and rendered live without any external libraries.\n∗ Architected the entire application as a single-page React app with modular component structure, ensuring clean separation of concerns across 6+ distinct resume sections.",
+      
+    },
   ],
 };
 
