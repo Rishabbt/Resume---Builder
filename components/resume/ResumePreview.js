@@ -137,8 +137,8 @@ function EducationSection({ data, accent }) {
       <SectionTitle accent={accent}>Education</SectionTitle>
       {data.education.map((e) => (
         <div key={e.id} className="edu-item">
+          <div className="edu-school" >{e.school || "University"}</div>
           <div className="edu-degree">{e.degree || "Degree"}</div>
-          <div className="edu-school" style={{ color: "#6b7280" }}>{e.school || "University"}</div>
           <div className="edu-date" style={{ color: "#6b7280" }}>
             {e.start}{e.start && e.end ? " – " : ""}{e.end}
             {e.gpa ? ` · GPA: ${e.gpa}` : ""}

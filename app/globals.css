@@ -293,8 +293,8 @@
 .exp-company { font-size: 0.78rem; font-weight: 600; margin: 0.15rem 0 0.4rem; }
 .exp-desc { font-size: 0.76rem; color: #000000; line-height: 1.65; }
 .edu-item { margin-bottom: 1rem; }
-.edu-degree { font-weight: 700; font-size: 0.84rem; }
-.edu-school { font-size: 0.76rem; margin-top: 0.1rem; }
+.edu-school { font-weight: 700; font-size: 0.84rem; }
+.edu-degree { font-size: 0.76rem; margin-top: 0.1rem; }
 .edu-date { font-size: 0.7rem; }
 .skill-group { margin-bottom: 1rem; }
 .skill-group-name { font-size: 0.7rem; font-weight: 700; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -477,11 +477,11 @@
   align-items: flex-start;
   margin-bottom: 0.7rem;
 }
-.tpl-classic .edu-degree {
+.tpl-classic .edu-school {
   font-weight: 700;
   font-size: 0.84rem;
 }
-.tpl-classic .edu-school {
+.tpl-classic .edu-degree {
   font-size: 0.78rem;
   color: #374151;
 }
