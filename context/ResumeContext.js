@@ -66,7 +66,7 @@ const DEMO_DATA = {
       name: "AI Resume Analyzer",
       link:"https://ai-resumep-analyzer.vercel.app/",
       tech: "Javascript, React.js, Tailwind CSS, Puter.js(for handling backend operation)",
-      desc: "∗ Built an AI-powered ATS Resume Analyzer to evaluate resumes and generate ATS scores with improvement tips.\n ∗  Implemented smart job matching and keyword optimization. And generate actionable suggestions, with dynamic model switching enabled through Puter.js.\n ∗ Integrated AI to provide personalized feedback and identify areas of improvement based on specific job descriptions. And also analysis resume to identify strengths, highlight improvement areas.\n ∗ Utilized Puter.js for backend operations, free API key management, and system orchestration.\n ∗ Designed the workflow to automate resume parsing, evaluation, and recommendation generation.",
+      desc: "∗ Built an ** AI-powered ATS resume score** using the Claude API, delivering instant feedback on keyword density, formatting, and section completeness — **boosting shortlisting chances by ~30%.**\n ∗  Developed a **Job Description Matcher** that extracts role-specific skills and keywords from JDs, aligning them against resume content for **up to 85% match accuracy.**\n ∗  Engineered a keyword gap analysis engine that detects missing hard and soft skills from target job postings, cutting **manual resume iteration time by 40%.**\n ∗ Built a multi-format resume parser supporting **PDF and DOCX** uploads, extracting experience, skills, and education across diverse resume layouts with** 90%+ parsing reliability.**",
     },
    
     {
@@ -74,7 +74,7 @@ const DEMO_DATA = {
       link: "https://e-commerce-fashtech.vercel.app/",   
       name: "E-commerce Website",
       tech: "Javascript, React.js, Next.js, tailwind CSS",
-      desc: "∗ Developed a modern, responsive e-commerce platform to solve poor navigation and inconsistent layouts commonly found in small online stores.\n ∗ Redesigned user flow to reduce friction during browsing and checkout, resulting in smoother product discovery and shopping experience.\n ∗ Implemented a clean, component-based UI using React and Next.js to improve maintainability and page load performance.\n ∗ Built fully responsive layouts with Tailwind CSS to fix mobile usability issues and ensure consistent design across devices.∗ Optimized UI structure and state handling to eliminate unnecessary re-renders, improving overall application responsiveness.",
+      desc: "∗ Built a modern, **responsive e-commerce platform using Next.js and React.js,** solving poor navigation and inconsistent layouts common in small online stores — deployed live on Vercel.\n Engineered a **cart and checkout system** with **Redux Toolkit** for global state management, handling real-time quantity updates, price calculations, and order summaries with zero prop-drilling.\n ∗ Implemented secure user **authentication via Clerk,** protecting private routes and persisting session state across reloads with seamless **Redux Toolkit integration**.\n ∗  Designed a fully responsive, mobile-first UI with Tailwind CSS, eliminating unnecessary re-renders through optimized component structure — **improving app responsiveness** across all screen sizes.",
       
     },
     {
@@ -82,7 +82,7 @@ const DEMO_DATA = {
       link: "https://resume-builder-two-bay.vercel.app/",   
       name: "Resume Buillder",
       tech: "Javascript, React.js, Next.js, tailwind CSS",
-      desc: "∗ Engineered a full-featured resume builder with live real-time preview, enabling users to see formatting changes instantly without page reloads — deployed on Vercel and actively used by **real users** \n∗ Built a multi-template rendering engine with dynamic accent color and font customization, allowing users to switch between professional layouts while preserving all entered data. \n∗ Implemented drag-and-drop section reordering using positional **state management **, giving users full control over resume structure with smooth, intuitive interactions.\n∗ Designed a custom markdown-style text formatter supporting bold, italic, code, and bullet syntax inside input fields — parsed and rendered live without any external libraries.\n∗ Architected the entire application as a single-page React app with modular component structure, ensuring clean separation of concerns across 6+ distinct resume sections.",
+      desc: "Built **ResumeCraft Pro**, a live **Next.js 15** resume builder deployed on Vercel with real users, featuring multiple professional templates, live preview, and one-click **multi-page PDF export.**\n∗  Engineered a **drag-and-drop section reordering system** using React.js, enabling real-time resume customization without page reload — **reducing build time by ~50%.** \n∗ Implemented **markdown-style inline** text formatting (bold, italic, lists) within resume fields, delivering rich-text control **without any heavy editor library dependency.**\n∗ Integrated Google Analytics to track real user behavior — page views, template selections, and PDF exports — enabling data-driven UI improvements post-launch.",
       
     },
   ],
