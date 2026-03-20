@@ -24,7 +24,7 @@ export default function ProjectsForm() {
           <Input label="Project Name" value={p.name} onChange={(v) => updateProject(p.id, "name", v)} placeholder="My Awesome App" />
           <Input label="Project Link (optional)" type="url" value={p.link || ""} onChange={(v) => updateProject(p.id, "link", v)} placeholder="https://github.com/you/project" />
           <Input label="Tech Stack" value={p.tech} onChange={(v) => updateProject(p.id, "tech", v)} placeholder="React · Node.js · MongoDB" />
-          <Textarea label="Description" value={p.desc} onChange={(v) => updateProject(p.id, "desc", v)} placeholder="What it does, your role, and impact..." rows={3} />
+          <Textarea label="Description" value={p.desc} onChange={(v) => updateProject(p.id, "desc", v)} placeholder="What it does, your role, and impact..." rows={10} />
         </DraggableCard>
       ))}
       <Button variant="primary" size="sm" onClick={addProject} className="mt-1">
