@@ -496,14 +496,30 @@
   margin-bottom: 0.5rem;
 }
 .tpl-classic .skill-group-name {
-  display: block;
+  display: inline;
   font-weight: 700;
   font-size: 0.8rem;
-  margin-bottom: 0.2rem;
+  margin-right: 0.3rem;
 }
+.tpl-classic .skill-group-name::after {
+  content: ' : ';
+  font-weight: 1200;
+  color: #6b7280;
+}
+
 .tpl-classic .skill-tags {
-  display: block;
+  display: inline;
 }
+
+.tpl-classic .skill-tag::after {
+  content: ' ·';
+  color: #9ca3af;
+}
+
+.tpl-classic .skill-tag:last-child::after {
+  content: '';
+}
+
 .tpl-classic .skill-tag {
   display: inline;
   background: none;
