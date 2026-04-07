@@ -40,17 +40,17 @@ const DEMO_DATA = {
       id: "e1",
       degree: " Computer Science & Engineering",
       school: "IIT Hyderabad",
-      start: "2022",
-      end: "2024",
-      gpa: "9.2/10",
+      start: "2023",
+      end: "2026",
+      gpa: "",
     },
     {
       id: "e2",
       degree: "B.Tech in Computer Engineering",
       school: "K.J. Somaiya College of Engineering",
-      start: "2018",
-      end: "2022",
-      gpa: "9.46/10",
+      start: "2022",
+      end: "2023",
+      gpa: "",
     },
   ],
   skills: [
@@ -71,7 +71,7 @@ const DEMO_DATA = {
    
     {
       id: "p2",
-      link: "https://e-commerce-fashtech.vercel.app/",   
+      link: "https://e-commerce-fashtech-1u6p.vercel.app/",   
       name: "E-commerce Website",
       tech: "Javascript, React.js, Next.js, tailwind CSS",
       desc: "∗ Built a modern, **responsive e-commerce platform using Next.js and React.js,** solving poor navigation and inconsistent layouts common in small online stores — deployed live on Vercel.\n Engineered a **cart and checkout system** with **Redux Toolkit** for global state management, handling real-time quantity updates, price calculations, and order summaries with zero prop-drilling.\n ∗ Implemented secure user **authentication via Clerk,** protecting private routes and persisting session state across reloads with seamless **Redux Toolkit integration**.\n ∗  Designed a fully responsive, mobile-first UI with Tailwind CSS, eliminating unnecessary re-renders through optimized component structure — **improving app responsiveness** across all screen sizes.",
