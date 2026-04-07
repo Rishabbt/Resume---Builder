@@ -1,51 +1,43 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import clsx from "clsx";
 
-/**
- * DraggableCard — pure HTML5 drag-and-drop wrapper for sidebar list items.
- * Props:
- *   index      — current index in array
- *   onReorder  — (fromIdx, toIdx) => void
- *   onRemove   — () => void
- *   title      — collapsed header label
- *   children   — form fields
- */
 export default function DraggableCard({ index, onReorder, onRemove, title, children }) {
   const [open, setOpen] = useState(true);
   const [dragging, setDragging] = useState(false);
   const [dragOver, setDragOver] = useState(false);
-  const dragIdx = useRef(null);
 
   return (
     <div
-      draggable
-      onDragStart={(e) => {
-        dragIdx.current = index;
-        setDragging(true);
-        e.dataTransfer.effectAllowed = "move";
-      }}
-      onDragEnd={() => { setDragging(false); setDragOver(false); }}
-      onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
-      onDragLeave={() => setDragOver(false)}
-      onDrop={(e) => {
-        e.preventDefault();
-        setDragOver(false);
-        if (dragIdx.current !== null && dragIdx.current !== index) {
-          onReorder(dragIdx.current, index);
-        }
-        dragIdx.current = null;
-      }}
       className={clsx(
         "border-[1.5px] rounded-xl mb-2.5 transition-all duration-150 overflow-hidden",
         dragging   ? "opacity-40 border-[#e63946]" : "border-[#e2ddd6]",
         dragOver   ? "border-[#e63946] bg-red-50 scale-[1.01]" : "bg-[#fafaf8]",
         !dragging && !dragOver && "hover:border-[#c9c4bc]"
       )}
+      onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+      onDragLeave={() => setDragOver(false)}
+      onDrop={(e) => {
+        e.preventDefault();
+        setDragOver(false);
+        const fromIdx = parseInt(e.dataTransfer.getData("text/plain"), 10);
+        if (!isNaN(fromIdx) && fromIdx !== index) {
+          onReorder(fromIdx, index);
+        }
+      }}
     >
-      {/* Card Header */}
-      <div className="flex items-center gap-2 px-3.5 py-2.5 cursor-grab select-none">
-        <span className="text-[#bbb] text-base leading-none">⠿</span>
+      {/* Drag Handle — only this part is draggable */}
+      <div
+        className="flex items-center gap-2 px-3.5 py-2.5 select-none"
+        draggable
+        onDragStart={(e) => {
+          e.dataTransfer.effectAllowed = "move";
+          e.dataTransfer.setData("text/plain", String(index));
+          setDragging(true);
+        }}
+        onDragEnd={() => { setDragging(false); setDragOver(false); }}
+      >
+        <span className="text-[#bbb] text-base leading-none cursor-grab">⠿</span>
         <span
           className="flex-1 text-[0.82rem] font-semibold text-[#1a1a2e] truncate cursor-pointer"
           onClick={() => setOpen((v) => !v)}
