@@ -94,6 +94,7 @@ const EMPTY_DATA = {
   education: [],
   skills: [],
   projects: [],
+  customSections: [], 
 };
 
 // ─── Accent Palette ────────────────────────────────────────────────────────
@@ -136,7 +137,66 @@ export function ResumeProvider({ children }) {
       personal: { ...prev.personal, [field]: value },
     }));
   }, []);
+ // Custome sections 
+ const addCustomSection = useCallback(() => {
+  setResumeData((prev) => ({
+    ...prev,
+     customSections: [...(prev.customSections || []), {
+      id: crypto.randomUUID(),
+      title: "",
+      items: [],
+    }],
+  }));
+}, []);
 
+const updateCustomSection = useCallback((id, field, value) => {
+  setResumeData((prev) => ({
+    ...prev,
+     customSections:(prev.customSections || []).map((s) =>
+      s.id === id ? { ...s, [field]: value } : s
+    ),
+  }));
+}, []);
+
+const removeCustomSection = useCallback((id) => {
+  setResumeData((prev) => ({
+    ...prev,
+     customSections:(prev.customSections || []).filter((s) => s.id !== id),
+  }));
+}, []);
+
+const addCustomItem = useCallback((sectionId) => {
+  setResumeData((prev) => ({
+    ...prev,
+     customSections:(prev.customSections || []).map((s) =>
+      s.id === sectionId
+        ? { ...s, items: [...s.items, { id: crypto.randomUUID(), title: "", subtitle: "", desc: "" }] }
+        : s
+    ),
+  }));
+}, []);
+
+const updateCustomItem = useCallback((sectionId, itemId, field, value) => {
+  setResumeData((prev) => ({
+    ...prev,
+     customSections: (prev.customSections || []).map((s) =>
+      s.id === sectionId
+        ? { ...s, items: s.items.map((item) => item.id === itemId ? { ...item, [field]: value } : item) }
+        : s
+    ),
+  }));
+}, []);
+
+const removeCustomItem = useCallback((sectionId, itemId) => {
+  setResumeData((prev) => ({
+    ...prev,
+     customSections:(prev.customSections || []).map((s) =>
+      s.id === sectionId
+        ? { ...s, items: s.items.filter((item) => item.id !== itemId) }
+        : s
+    ),
+  }));
+}, []);
   // ── Works ─────────────────────────────────────────────────────────────
   const addWork = useCallback(() => {
     const id = `w${Date.now()}`;
@@ -276,7 +336,8 @@ export function ResumeProvider({ children }) {
   return (
     <ResumeContext.Provider
       value={{
-        resumeData,
+        resumeData,addCustomSection, updateCustomSection, removeCustomSection,
+addCustomItem, updateCustomItem, removeCustomItem,
         template, setTemplate,
         accent, setAccent,
         fontScale, setFontScale,

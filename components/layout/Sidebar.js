@@ -18,6 +18,7 @@ const TABS = [
   { id: "education", label: "Edu",      icon: "🎓" },
   { id: "skills",    label: "Skills",   icon: "⚙️"  },
   { id: "projects",  label: "Projects", icon: "🚀" },
+  
   { id: "order",     label: "Order",    icon: "↕"  },
 ];
 
@@ -69,6 +70,7 @@ export default function Sidebar() {
         {activeTab === "skills"    && <SkillsForm />}
         {activeTab === "projects"  && <ProjectsForm />}
         {activeTab === "order"     && <SectionOrderForm />}
+        {activeTab === "custom" && <CustomSectionForm />}
       </div>
       {/* Mobile Developer Info button */}
 <div className="lg:hidden border-t border-[#e2ddd6] p-3 flex-shrink-0">

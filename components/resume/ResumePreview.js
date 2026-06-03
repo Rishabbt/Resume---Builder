@@ -149,6 +149,70 @@ function EducationSection({ data, accent }) {
   );
 }
 
+// CustomSection
+function CustomSections({ data, accent }) {
+  if (!data?.customSections || data.customSections.length === 0) return null;
+
+  return (
+    <>
+      {data.customSections.map((section) => (
+        <div key={section.id} className="r-section">
+          <SectionTitle accent={accent}>
+            {section.title}
+          </SectionTitle>
+
+          {section.items.map((item) => (
+            <div key={item.id} className="exp-item">
+              <div
+                className="exp-role"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <span>{item.title}</span>
+
+                {item.link && (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      fontSize: "0.72rem",
+                      color: "blue",
+                      textDecoration: "none",
+                      fontWeight: 600,
+                      whiteSpace: "nowrap",
+                      marginLeft: "auto",
+                    }}
+                  >
+                    ↗ Link
+                  </a>
+                )}
+              </div>
+
+              {item.subtitle && (
+                <div className="exp-company">
+                  {item.subtitle}
+                </div>
+              )}
+
+              {item.desc && (
+                <div
+                  className="exp-desc"
+                  dangerouslySetInnerHTML={{
+                    __html: formatText(item.desc),
+                  }}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      ))}
+    </>
+  );
+}
 // ── Section Renderer ──────────────────────────────────────────────────────
 function RenderSection({ sectionId, data, accent }) {
   switch (sectionId) {
@@ -221,12 +285,17 @@ export default function ResumePreview() {
           <div className="r-main">
             {mainSections.map((s) => (
               <RenderSection key={s.id} sectionId={s.id} data={resumeData} accent={accent} />
+              
             ))}
+            <CustomSections data={resumeData} accent={accent} /> 
+
           </div>
           <div className="r-side">
             {sideSections.map((s) => (
               <RenderSection key={s.id} sectionId={s.id} data={resumeData} accent={accent} />
             ))}
+            
+
           </div>
         </div>
       </div>
@@ -249,6 +318,8 @@ export default function ResumePreview() {
             {mainSections.map((s) => (
               <RenderSection key={s.id} sectionId={s.id} data={resumeData} accent={accent} />
             ))}
+            <CustomSections data={resumeData} accent={accent} /> 
+
           </div>
           <div className="r-side">
             {sideSections.map((s) => (
@@ -279,6 +350,8 @@ export default function ResumePreview() {
             {mainSections.map((s) => (
               <RenderSection key={s.id} sectionId={s.id} data={resumeData} accent={accent} />
             ))}
+            <CustomSections data={resumeData} accent={accent} /> 
+
           </div>
         </div>
       </div>
@@ -303,6 +376,8 @@ export default function ResumePreview() {
             {mainSections.map((s) => (
               <RenderSection key={s.id} sectionId={s.id} data={resumeData} accent={accent} />
             ))}
+            <CustomSections data={resumeData} accent={accent} /> 
+
           </div>
           <div className="r-side">
             {sideSections.map((s) => (
@@ -326,6 +401,8 @@ export default function ResumePreview() {
           {mainSections.map((s) => (
             <RenderSection key={s.id} sectionId={s.id} data={resumeData} accent={accent} />
           ))}
+            <CustomSections data={resumeData} accent={accent} /> 
+
         </div>
         <div className="r-side">
           {sideSections.map((s) => (

@@ -1,7 +1,9 @@
 "use client";
 import { useRef, useState } from "react";
 import { useResume } from "@/context/ResumeContext";
+import CustomSectionForm from "@/components/forms/CustomSectionForm";
 import clsx from "clsx";
+
 
 export default function SectionOrderForm() {
   const { sections, reorderSections, toggleSection } = useResume();
@@ -61,6 +63,11 @@ export default function SectionOrderForm() {
           </div>
         ))}
       </div>
+      {/* Custom Sections */}
+<div className="mt-6 border-t border-[#e2ddd6] pt-5">
+  <h3 className="text-[0.82rem] font-bold text-[#1a1a2e] mb-3">✚ Custom Sections</h3>
+  <CustomSectionForm />
+</div>
     </div>
   );
 }
